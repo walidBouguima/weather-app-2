@@ -13,7 +13,6 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      binary: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
       args: ['--headless', '--log-level=3', '--disable-gpu', '--window-size=1280x1024'],
     },
   },
