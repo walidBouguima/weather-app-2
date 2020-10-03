@@ -14,8 +14,8 @@ interface ICurrentWeatherData {
   sys: {
     country: string
   }
-  t: number
-  me: string
+  dt: number
+  name: string
 }
 @Injectable({
   providedIn: 'root',
