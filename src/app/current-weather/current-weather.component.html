@@ -1,4 +1,7 @@
-<div>
+<div *ngIf="!current">
+  No data at the moment
+</div>
+<div *ngIf="current">
   <div>
     <span>{{current.city }}, {{current.country }}</span>
   </div>
