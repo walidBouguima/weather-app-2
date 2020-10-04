@@ -7,15 +7,19 @@
       {{current.city }}, {{current.country }}
     </div>
     <div fxFlex class=" right mat-h3 no-margin">
-      {{ current.date | date:'EEEE MMM d'}}
+      {{ current.date | date:'EEEE'}} <br>
+      {{ current.date | date:'MMM d'}}{{getOrdinal(current.date)}}
     </div>
   </div>
   <div fxLayout="row" fxLayoutAligin="center center">
-    <div fxFlex="66%">
+    <div fxFlex="55%">
       <img [src]='current.image' style="zoom: 175%">
     </div>
-    <div fxFlex class="right mat-display-2 no-margin">
-      {{current.temperature | number: '1.0-0'}}°F
+    <div fxFlex class="right no-margin">
+      <p class="mat-display-3">
+        {{current.temperature | number: '1.0-0'}}
+        <span class="mat-display-1 unit">°F</span>
+      </p>
     </div>
   </div>
   <div fxLayoutAlign="center">
