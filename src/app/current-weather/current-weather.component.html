@@ -3,12 +3,24 @@
 </div>
 <div *ngIf="current">
   <div fxLayout="row">
-    <div fxFlex="66%">{{current.city }}, {{current.country }}</div>
-    <div fxFlex>{{ current.date | date:'fullDate'}}</div>
+    <div fxFlex="66%" class="mat-title no-margin">
+      {{current.city }}, {{current.country }}
+    </div>
+    <div fxFlex class=" right mat-h3 no-margin">
+      {{ current.date | date:'EEEE MMM d'}}
+    </div>
   </div>
   <div fxLayout="row">
-    <div fxFlex="66%"><img [src]='current.image'></div>
-    <div fxFlex>{{current.temperature | number: '1.0-0'}} °F</div>
+    <div fxFlex="66%">
+      <img [src]='current.image' style="zoom: 175%">
+    </div>
+    <div fxFlex class="right mat-display-2 no-margin">
+      {{current.temperature | number: '1.0-0'}}°F
+    </div>
   </div>
-  <div>{{current.description}}</div>
+  <div fxLayoutAlign="center">
+    <div class="mat-caption">
+      {{current.description}}
+    </div>
+  </div>
 </div>
