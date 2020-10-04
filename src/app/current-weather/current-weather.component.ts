@@ -18,6 +18,7 @@ export class CurrentWeatherComponent implements OnInit {
       .subscribe((data) => (this.current = data))
   }
 
+  // tslint:disable-next-line: typedef
   getOrdinal(date: number) {
     const n = new Date(date).getDate()
     return n > 0
