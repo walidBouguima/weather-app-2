@@ -23,7 +23,11 @@ interface ICurrentWeatherData {
   name: string
 }
 export interface IWeatherService {
-  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather>
+  getCurrentWeather(
+    search: string | number,
+    country?: string
+  ): Observable<ICurrentWeather>
+  getCurrentWeatherByCoords(cords: Coordinates): Observable<ICurrentWeather>
 }
 
 @Injectable({
@@ -59,6 +63,7 @@ export class WeatherService implements IWeatherService {
   convertKelvinToFahrenheit(kelvin: number): number {
     return (kelvin * 9) / 5 - 459.67
   }
+
   private getCurrentWeatherHelper(uriParams: HttpParams): Observable<ICurrentWeather> {
     uriParams = uriParams.set('appid', environment.appId)
     return this.httpClient
@@ -67,5 +72,14 @@ export class WeatherService implements IWeatherService {
         { params: uriParams }
       )
       .pipe(map((data) => this.transformToICurrentWeather(data)))
+  }
+  // implement supplimentary params by trying to fetch data by Coords
+
+  getCurrentWeatherByCoords(coords: Coordinates): Observable<ICurrentWeather> {
+    const uriParams = new HttpParams()
+      .set('lat', coords.latitude.toString())
+      .set('lon', coords.longitude.toString())
+
+    return this.getCurrentWeatherHelper(uriParams)
   }
 }
