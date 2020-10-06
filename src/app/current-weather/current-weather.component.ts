@@ -20,8 +20,9 @@ export class CurrentWeatherComponent implements OnInit, OnDestroy {
     )
   }
 
+  // tslint:disable-next-line: typedef
   ngOnDestroy() {
-    this.subscriptions.unsubscribe
+    this.subscriptions.unsubscribe()
   }
   // tslint:disable-next-line: typedef
   getOrdinal(date: number) {
