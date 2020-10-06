@@ -20,7 +20,7 @@ export interface IPostalCodeService {
 @Injectable({
   providedIn: 'root',
 })
-export class PostalCodeService {
+export class PostalCodeService implements IPostalCodeService {
   constructor(private httpClient: HttpClient) {}
 
   resolvePostalCode(postalCode: string): Observable<IPostalCode> {
